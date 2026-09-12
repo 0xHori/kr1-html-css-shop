@@ -6,7 +6,7 @@
 В проекте реализован многостраничный HTML/CSS-сайт интернет-магазина или каталога услуг.
 
 ## Ссылка на опубликованный проект
-GitHub Pages: https://username.github.io/kr1-html-css-shop/
+GitHub Pages: https://0xhori.github.io/kr1-html-css-shop/
 
 ## Автор
 - Савченко Андрей Павлович | ЭФБО-08-25
