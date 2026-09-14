@@ -25,6 +25,10 @@
 - Git;
 - GitHub.
 
+## Ссылка на опубликованный проект
+
+GitHub Pages: https://0xhori.github.io/kr1-html-css-shop/
+
 ## Автор
 
 ФИО: Савченко Андрей Павлович
