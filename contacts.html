@@ -6,38 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Контактная информация учебного интернет-магазина.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Учебный интернет-магазин">
-    <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-    <meta property="og:image" content="https://username.github.io/kr1-html-css-shop/images/preview.png">
+    <meta property="og:title" content="Контакты — Учебный интернет-магазин">
+    <meta property="og:description" content="Контакты и реквизиты учебного проекта.">
     <title>Контакты — Учебный интернет-магазин</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body id="top">
     <header class="site-header">
         <div class="site-header__inner">
             <a class="site-header__logo" href="index.html">ShopProject</a>
-
             <nav class="site-nav" aria-label="Основная навигация">
                 <ul class="site-nav__list">
-                    <li class="site-nav__item">
-                        <a class="site-nav__link" href="index.html">Главная</a>
-                    </li>
-                    <li class="site-nav__item">
-                        <a class="site-nav__link" href="catalog.html">Каталог</a>
-                    </li>
-                    <li class="site-nav__item">
-                        <a class="site-nav__link site-nav__link--active" href="contacts.html">Контакты</a>
-                    </li>
-                    <li class="site-nav__item">
-                        <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
-                    </li>
-                    <li class="site-nav__item">
-                        <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
-                    </li>
-                    <li class="site-nav__item">
-                        <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
-                    </li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="order.html">Оформить заказ</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link site-nav__link--active"
+                            href="contacts.html">Контакты</a></li>
                 </ul>
             </nav>
         </div>
@@ -49,25 +35,26 @@
             <span class="breadcrumbs__current">Контакты</span>
         </nav>
 
-        <section class="section">
-            <h1>Контакты</h1>
-            <p>
-                Здесь размещается контактная информация учебного интернет-магазина.
-            </p>
+        <section class="section contacts-info">
+            <h1>Контактные данные</h1>
+            <p>Вы можете связаться с нами любым удобным способом или воспользоваться формой онлайн-заказа.</p>
 
-            <ul>
-                <li>Телефон: +7 (900) 000-00-00</li>
-                <li>E-mail: info@example.com</li>
-                <li>Адрес: г. Москва, учебный проект</li>
+            <ul class="contacts-info__list">
+                <li class="contacts-info__item"><strong>Телефон:</strong> +7 (900) 000-00-00</li>
+                <li class="contacts-info__item"><strong>E-mail:</strong> info@example.com</li>
+                <li class="contacts-info__item"><strong>Адрес офиса:</strong> г. Москва, учебный корпус РТУ МИРЭА /
+                    ИПТИП</li>
+                <li class="contacts-info__item"><strong>Режим работы:</strong> Пн-Пт: 09:00 — 18:00, Сб-Вс: выходной
+                </li>
             </ul>
         </section>
 
         <section class="section" id="feedback">
-            <h2>Обратная связь</h2>
+            <h2>Связь с менеджером</h2>
             <p>
-                Для отправки заявки используйте форму в модальном окне на главной странице.
+                Для отправки официальной заявки на покупку воспользуйтесь нашей формой оформления заказа.
             </p>
-            <a class="button button--primary" href="index.html#contacts">Перейти к форме</a>
+            <a class="button button--primary" href="order.html">Перейти к форме заказа</a>
         </section>
     </main>
 
@@ -75,6 +62,8 @@
         <p>&copy; 2026 Учебный проект. Все права защищены.</p>
         <p>Дисциплина: Фронтенд и бэкенд разработка</p>
     </footer>
+
+    <a class="scroll-top-button" href="#top" aria-label="Вернуться наверх страницы">&#8593;</a>
 </body>
 
 </html>

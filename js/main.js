@@ -1,76 +1,97 @@
-// Получаем модальное окно по id.
+// ==========================================
+// 1. Управление модальным окном быстрого заказа
+// ==========================================
 const orderDialog = document.getElementById('order-dialog');
-
-// Получаем все кнопки заказа в карточках товаров.
 const orderButtons = document.querySelectorAll('.product-card__button');
-
-// Получаем кнопку закрытия модального окна.
 const closeDialogButton = document.getElementById('close-order-dialog');
-
-// Получаем скрытое поле, в которое будет записан выбранный товар.
 const selectedProductInput = document.getElementById('selected-product');
 
-// Перебираем все кнопки «Заказать».
-orderButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    // Получаем название товара из data-атрибута.
-    const productName = button.dataset.product;
-
-    // Записываем название товара в скрытое поле формы.
-    selectedProductInput.value = productName;
-
-    // Открываем модальное окно.
-    orderDialog.showModal();
+if (orderDialog && orderButtons.length > 0) {
+  orderButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const productName = button.dataset.product || 'Товар';
+      if (selectedProductInput) {
+        selectedProductInput.value = productName;
+      }
+      orderDialog.showModal();
+    });
   });
-});
+}
 
-// Закрываем модальное окно по кнопке «Закрыть».
-closeDialogButton.addEventListener('click', () => {
-  orderDialog.close();
-});
+if (orderDialog && closeDialogButton) {
+  closeDialogButton.addEventListener('click', () => {
+    orderDialog.close();
+  });
+}
 
-
-
-// Получаем форму заявки.
+// ==========================================
+// 2. Валидация модальной формы
+// ==========================================
 const orderForm = document.getElementById('order-form');
-
-// Получаем сообщение об успешной отправке.
 const successMessage = document.getElementById('success-message');
 
-// Обрабатываем отправку формы.
-orderForm.addEventListener('submit', (event) => {
-  // Отменяем стандартную отправку формы,
-  // потому что backend пока не подключён.
-  event.preventDefault();
+if (orderForm) {
+  orderForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-  // Сбрасываем предыдущие признаки ошибок.
-  const formElements = Array.from(orderForm.elements);
-
-  formElements.forEach((element) => {
-    if (element.willValidate) {
-      element.removeAttribute('aria-invalid');
-    }
-  });
-
-  // Проверяем встроенные HTML-ограничения формы.
-  if (!orderForm.checkValidity()) {
+    const formElements = Array.from(orderForm.elements);
     formElements.forEach((element) => {
-      if (element.willValidate && !element.checkValidity()) {
-        element.setAttribute('aria-invalid', 'true');
+      if (element.willValidate) {
+        element.removeAttribute('aria-invalid');
       }
     });
 
-    // Показываем стандартные сообщения браузера.
-    orderForm.reportValidity();
-    return;
-  }
+    if (!orderForm.checkValidity()) {
+      formElements.forEach((element) => {
+        if (element.willValidate && !element.checkValidity()) {
+          element.setAttribute('aria-invalid', 'true');
+        }
+      });
+      orderForm.reportValidity();
+      return;
+    }
 
-  // Показываем сообщение об успешной отправке.
-  successMessage.hidden = false;
+    if (successMessage) {
+      successMessage.hidden = false;
+    }
+    orderForm.reset();
+    if (orderDialog) {
+      orderDialog.close();
+    }
+  });
+}
 
-  // Очищаем форму.
-  orderForm.reset();
+// ==========================================
+// 3. Валидация формы на отдельной странице (order.html)
+// ==========================================
+const pageOrderForm = document.getElementById('page-order-form');
+const pageSuccessMessage = document.getElementById('page-success-message');
 
-  // Закрываем модальное окно.
-  orderDialog.close();
-});
+if (pageOrderForm) {
+  pageOrderForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formElements = Array.from(pageOrderForm.elements);
+    formElements.forEach((element) => {
+      if (element.willValidate) {
+        element.removeAttribute('aria-invalid');
+      }
+    });
+
+    if (!pageOrderForm.checkValidity()) {
+      formElements.forEach((element) => {
+        if (element.willValidate && !element.checkValidity()) {
+          element.setAttribute('aria-invalid', 'true');
+        }
+      });
+      pageOrderForm.reportValidity();
+      return;
+    }
+
+    if (pageSuccessMessage) {
+      pageSuccessMessage.hidden = false;
+      pageSuccessMessage.scrollIntoView({ behavior: 'smooth' });
+    }
+    pageOrderForm.reset();
+  });
+}

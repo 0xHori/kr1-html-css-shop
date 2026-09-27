@@ -4,40 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Каталог товаров учебного интернет-магазина.">
+    <meta name="description" content="Каталог товаров учебного интернет-магазина с фильтрами.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Учебный интернет-магазин">
-    <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-    <meta property="og:image" content="https://username.github.io/kr1-html-css-shop/images/preview.png">
+    <meta property="og:title" content="Каталог товаров — Учебный интернет-магазин">
+    <meta property="og:description" content="Учебный каталог товаров с фильтрацией.">
     <title>Каталог товаров — Учебный интернет-магазин</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 
-<body>
+<body id="top">
     <header class="site-header">
         <div class="site-header__inner">
             <a class="site-header__logo" href="index.html">ShopProject</a>
-
             <nav class="site-nav" aria-label="Основная навигация">
                 <ul class="site-nav__list">
-                    <li class="site-nav__item">
-                        <a class="site-nav__link" href="index.html">Главная</a>
-                    </li>
-                    <li class="site-nav__item">
-                        <a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a>
-                    </li>
-                    <li class="site-nav__item">
-                        <a class="site-nav__link" href="contacts.html">Контакты</a>
-                    </li>
-                    <li class="site-nav__item">
-                        <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
-                    </li>
-                    <li class="site-nav__item">
-                        <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
-                    </li>
-                    <li class="site-nav__item">
-                        <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
-                    </li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link site-nav__link--active"
+                            href="catalog.html">Каталог</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="order.html">Оформить заказ</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
                 </ul>
             </nav>
         </div>
@@ -51,74 +38,87 @@
 
         <section class="section">
             <h1>Каталог товаров</h1>
-            <p>
-                На этой странице представлен учебный каталог товаров.
-                В дальнейшем здесь будут добавлены фильтры, сортировка и более
-                подробные карточки.
-            </p>
+            <p>Выберите подходящую категорию или настройте диапазон цен с помощью фильтров.</p>
         </section>
 
         <section class="catalog-layout">
             <aside class="catalog-filters">
-                <h2>Фильтры</h2>
-
+                <h2 class="catalog-filters__title">Фильтры</h2>
                 <form class="filters-form" action="#" method="get">
                     <fieldset class="filters-form__group">
                         <legend class="filters-form__legend">Категория</legend>
-
                         <label class="filters-form__label">
-                            <input type="checkbox" name="category" value="all">
+                            <input class="filters-form__checkbox" type="checkbox" name="category" value="all" checked>
                             Все товары
                         </label>
-
                         <label class="filters-form__label">
-                            <input type="checkbox" name="category" value="popular">
+                            <input class="filters-form__checkbox" type="checkbox" name="category" value="popular">
                             Популярные
                         </label>
-
                         <label class="filters-form__label">
-                            <input type="checkbox" name="category" value="new">
+                            <input class="filters-form__checkbox" type="checkbox" name="category" value="new">
                             Новинки
                         </label>
                     </fieldset>
 
                     <fieldset class="filters-form__group">
-                        <legend class="filters-form__legend">Цена</legend>
-
+                        <legend class="filters-form__legend">Цена (руб.)</legend>
                         <label class="filters-form__label" for="price-from">От</label>
-                        <input class="filters-form__input" id="price-from" name="price-from" type="number" min="0" placeholder="0">
+                        <input class="filters-form__input" id="price-from" name="price-from" type="number" min="0"
+                            placeholder="0">
 
                         <label class="filters-form__label" for="price-to">До</label>
-                        <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" placeholder="5000">
+                        <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0"
+                            placeholder="5000">
                     </fieldset>
 
-                    <button class="button button--primary" type="submit">Применить</button>
+                    <button class="button button--primary" type="submit">Применить фильтр</button>
                 </form>
             </aside>
 
             <section class="catalog-products">
                 <h2>Список товаров</h2>
-
                 <div class="products-grid">
                     <article class="product-card product-card--featured">
+                        <span class="product-card__badge product-card__badge--featured">Хит</span>
                         <h3 class="product-card__title">Товар 1</h3>
-                        <p class="product-card__description">Краткое описание учебного товара.</p>
+                        <p class="product-card__description">Краткое описание учебного товара 1.</p>
                         <p class="product-card__price">Цена: 1000 руб.</p>
-                        <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+                        <div class="product-card__actions">
+                            <a class="button button--secondary" href="product.html">Подробнее</a>
+                            <button class="button button--primary product-card__button" type="button"
+                                data-product="Товар 1">
+                                Заказать
+                            </button>
+                        </div>
                     </article>
 
-                    <article class="product-card">
+                    <article class="product-card product-card--discount">
+                        <span class="product-card__badge product-card__badge--discount">-15%</span>
                         <h3 class="product-card__title">Товар 2</h3>
-                        <p class="product-card__description">Краткое описание учебного товара.</p>
+                        <p class="product-card__description">Краткое описание учебного товара 2.</p>
                         <p class="product-card__price">Цена: 1500 руб.</p>
-                        <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+                        <div class="product-card__actions">
+                            <a class="button button--secondary" href="product.html">Подробнее</a>
+                            <button class="button button--primary product-card__button" type="button"
+                                data-product="Товар 2">
+                                Заказать
+                            </button>
+                        </div>
                     </article>
 
                     <article class="product-card">
+                        <span class="product-card__badge product-card__badge--new">New</span>
                         <h3 class="product-card__title">Товар 3</h3>
-                        <p class="product-card__description">Краткое описание учебного товара.</p>
+                        <p class="product-card__description">Краткое описание учебного товара 3.</p>
                         <p class="product-card__price">Цена: 2000 руб.</p>
-                        <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+                        <div class="product-card__actions">
+                            <a class="button button--secondary" href="product.html">Подробнее</a>
+                            <button class="button button--primary product-card__button" type="button"
+                                data-product="Товар 3">
+                                Заказать
+                            </button>
+                        </div>
                     </article>
                 </div>
             </section>
@@ -129,6 +129,52 @@
         <p>&copy; 2026 Учебный проект. Все права защищены.</p>
         <p>Дисциплина: Фронтенд и бэкенд разработка</p>
     </footer>
+
+    <!-- Модальное окно быстрого заказа дублируется для работы кнопок в каталоге -->
+    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+        <h2 class="order-dialog__title" id="order-dialog-title">Быстрое оформление заявки</h2>
+        <form class="order-form" id="order-form" action="#" method="post" novalidate>
+            <input id="selected-product" name="selected-product" type="hidden">
+
+            <div class="order-form__field">
+                <label class="order-form__label" for="catalog-order-name">Имя</label>
+                <input class="order-form__input" id="catalog-order-name" name="name" type="text"
+                    placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
+            </div>
+
+            <div class="order-form__field">
+                <label class="order-form__label" for="catalog-order-email">E-mail</label>
+                <input class="order-form__input" id="catalog-order-email" name="email" type="email"
+                    placeholder="example@mail.ru" autocomplete="email" required>
+            </div>
+
+            <div class="order-form__field">
+                <label class="order-form__label" for="catalog-order-phone">Телефон</label>
+                <input class="order-form__input" id="catalog-order-phone" name="phone" type="tel" inputmode="tel"
+                    placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
+                <small class="order-form__help">Формат: +7 (900) 000-00-00</small>
+            </div>
+
+            <div class="order-form__field order-form__field--checkbox">
+                <label class="order-form__checkbox-label">
+                    <input class="order-form__checkbox" id="catalog-order-agreement" name="agreement" type="checkbox"
+                        required>
+                    Я согласен на обработку персональных данных
+                </label>
+            </div>
+
+            <div class="order-form__actions">
+                <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+                <button class="button button--primary" type="submit">Отправить заявку</button>
+            </div>
+        </form>
+    </dialog>
+
+    <p class="success-message" id="success-message" hidden>
+        Форма успешно отправлена!
+    </p>
+
+    <a class="scroll-top-button" href="#top" aria-label="Вернуться наверх страницы">&#8593;</a>
 </body>
 
 </html>
