@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Страница оформления заказа и заявки в учебном интернет-магазине.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Оформление заявки — Учебный интернет-магазин">
+    <meta property="og:description" content="Заполните форму заявки на товар или консультацию.">
+    <title>Оформление заявки — Учебный интернет-магазин</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body id="top">
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-header__logo" href="index.html">ShopProject</a>
+            <nav class="site-nav" aria-label="Основная навигация">
+                <ul class="site-nav__list">
+                    <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link site-nav__link--active"
+                            href="order.html">Оформить заказ</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a class="breadcrumbs__link" href="index.html">Главная</a>
+            <span class="breadcrumbs__current">Оформление заявки</span>
+        </nav>
+
+        <section class="section">
+            <h1>Оформление заказа</h1>
+            <p>Заполните форму ниже для отправки заявки менеджеру интернет-магазина.</p>
+        </section>
+
+        <div class="order-layout">
+            <section class="order-layout__main">
+                <form class="order-form" id="page-order-form" action="#" method="post" novalidate>
+                    <div class="order-form__field">
+                        <label class="order-form__label" for="page-order-name">Ваше имя</label>
+                        <input class="order-form__input" id="page-order-name" name="name" type="text"
+                            placeholder="Иван Иванов" minlength="2" autocomplete="given-name" required>
+                    </div>
+
+                    <div class="order-form__field">
+                        <label class="order-form__label" for="page-order-email">Электронная почта (E-mail)</label>
+                        <input class="order-form__input" id="page-order-email" name="email" type="email"
+                            placeholder="example@mail.ru" autocomplete="email" required>
+                    </div>
+
+                    <div class="order-form__field">
+                        <label class="order-form__label" for="page-order-phone">Номер телефона</label>
+                        <input class="order-form__input" id="page-order-phone" name="phone" type="tel" inputmode="tel"
+                            placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
+                        <small class="order-form__help">Формат: +7 (900) 000-00-00</small>
+                    </div>
+
+                    <div class="order-form__field">
+                        <label class="order-form__label" for="page-order-product">Выбранный товар</label>
+                        <select class="order-form__select" id="page-order-product" name="product" required>
+                            <option value="">Выберите позицию</option>
+                            <option value="item1" selected>Товар 1 (1000 руб.)</option>
+                            <option value="item2">Товар 2 (1500 руб.)</option>
+                            <option value="item3">Товар 3 (2000 руб.)</option>
+                        </select>
+                    </div>
+
+                    <div class="order-form__field">
+                        <label class="order-form__label" for="page-order-date">Желаемая дата связи</label>
+                        <input class="order-form__input" id="page-order-date" name="date" type="date">
+                    </div>
+
+                    <div class="order-form__field">
+                        <label class="order-form__label" for="page-order-comment">Комментарий к заявке</label>
+                        <textarea class="order-form__textarea" id="page-order-comment" name="comment" rows="4"
+                            placeholder="Адрес доставки или дополнительные пожелания"></textarea>
+                    </div>
+
+                    <div class="order-form__field order-form__field--checkbox">
+                        <label class="order-form__checkbox-label">
+                            <input class="order-form__checkbox" id="page-order-agreement" name="agreement"
+                                type="checkbox" required>
+                            Я подтверждаю согласие на обработку персональных данных
+                        </label>
+                    </div>
+
+                    <div class="order-form__actions">
+                        <button class="button button--primary" type="submit">Отправить заказ</button>
+                        <a class="button button--secondary" href="catalog.html">Отмена</a>
+                    </div>
+                </form>
+            </section>
+
+            <aside class="order-layout__sidebar">
+                <h2>Памятка покупателя</h2>
+                <div class="order-summary-card">
+                    <h3>Условия обслуживания</h3>
+                    <ul class="order-summary-card__list">
+                        <li>Бесплатная консультация специалиста;</li>
+                        <li>Оплата при получении или онлайн;</li>
+                        <li>Гарантия возврата в течение 14 дней;</li>
+                        <li>Быстрая отправка заказов.</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <p class="success-message" id="page-success-message" hidden>
+            Ваш заказ успешно принят в обработку! Менеджер свяжется с вами в ближайшее время.
+        </p>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+        <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    </footer>
+
+    <a class="scroll-top-button" href="#top" aria-label="Вернуться наверх страницы">&#8593;</a>
+</body>
+
+</html>
