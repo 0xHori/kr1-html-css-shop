@@ -237,20 +237,6 @@ a:focus-visible {
   color: var(--color-muted);
 }
 
-/* .hero {
-  background-image: url("../images/preview.png");
-  max-width: var(--container-width);
-  margin: 0 auto var(--space-xl);
-  padding: var(--space-xl) var(--space-lg);
-  background-color: var(--color-surface-accent);
-  border-radius: var(--radius-lg);
-  background-size: cover;
-  max-height: 100%;
-} */
-
-
-
-
 .hero {
   margin: 0 0 var(--space-xl);
   position: relative;
@@ -273,7 +259,6 @@ a:focus-visible {
   z-index: 1;
 }
 
-/* контент поверх оверлея */
 .hero__content {
   position: relative;
   z-index: 2;
@@ -300,22 +285,6 @@ a:focus-visible {
   justify-content: center;
   flex-wrap: wrap;
 }
-
-
-
-
-
-
-
-/* .hero__title {
-  margin-top: 0;
-} */
-
-/* .hero__actions {
-  display: flex;
-  gap: var(--space-md);
-  margin-top: var(--space-md);
-} */
 
 .section {
   max-width: var(--container-width);
@@ -349,7 +318,6 @@ a:focus-visible {
   gap: var(--space-lg);
 }
 
-/* Карточка выступает контейнером для абсолютного бейджа */
 .product-card {
   position: relative;
   display: flex;
@@ -400,7 +368,6 @@ a:focus-visible {
 .product-card__title {
   margin: 0;
   padding-right: 48px;
-  /* отступ под абсолютный бейдж */
 }
 
 .product-card__description {
@@ -432,7 +399,6 @@ a:focus-visible {
   gap: var(--space-lg);
 }
 
-/* Демонстрация position: sticky для сайдбара */
 .catalog-filters {
   grid-area: filters;
   position: sticky;
@@ -668,7 +634,6 @@ a:focus-visible {
    11. Фиксированная кнопка «Наверх» (Fixed / Z-Index)
    =============================== */
 
-/* Демонстрация position: fixed и z-index */
 .scroll-top-button {
   position: fixed;
   bottom: 24px;
@@ -709,7 +674,7 @@ a:focus-visible {
 .product-details__placeholder img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* или contain — если нужно вписать без обрезки */
+  object-fit: cover;
   display: block;
   border-radius: var(--radius-md);
 }
