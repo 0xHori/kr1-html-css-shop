@@ -673,7 +673,7 @@ a:focus-visible {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  z-index: 999;
+  z-index: 1488;
   display: flex;
   align-items: center;
   justify-content: center;
