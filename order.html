@@ -59,7 +59,7 @@
                     <div class="order-form__field">
                         <label class="order-form__label" for="page-order-phone">Номер телефона</label>
                         <input class="order-form__input" id="page-order-phone" name="phone" type="tel" inputmode="tel"
-                            placeholder="+7 (900) 000-00-00" pattern="\+7\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}" required>
+                            placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
                         <small class="order-form__help">Формат: +7 (900) 000-00-00</small>
                     </div>
 
@@ -102,7 +102,7 @@
             <aside class="order-layout__sidebar">
                 <h2>Памятка покупателя</h2>
                 <div class="order-summary-card">
-                    <h3>Условия обслуживания</h3>
+                    <h3 class="order-summary-card__title">Условия обслуживания</h3>
                     <ul class="order-summary-card__list">
                         <li>Бесплатная консультация специалиста;</li>
                         <li>Оплата при получении или онлайн;</li>
